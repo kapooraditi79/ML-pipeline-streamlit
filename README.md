@@ -44,15 +44,17 @@ Categorical columns are isolated, imputed, and One-Hot Encoded.
 
 The paths merge back together into a generic NumPy array ready for training.
 
-Python
+
 
 # Architecture Snippet
+```
 preprocessor = ColumnTransformer(
     transformers=[
         ('num', numeric_transformer, numeric_cols),
         ('cat', categorical_transformer, categorical_cols)
     ], remainder='drop'
 )
+```
 2. Custom ML Implementation (The "From Scratch" Engine)
 While Scikit-Learn is used for production reliability, I implemented a Custom Logistic Regression class to demonstrate an understanding of the core algorithms.
 
@@ -77,28 +79,23 @@ Exploratory Data Analysis (EDA): Automatic correlation heatmaps and target distr
 Prerequisites: Python 3.8+
 
 Clone the Repository
-
-Bash
-
+```
 git clone https://github.com/yourusername/no-code-ml-pipeline.git
 cd no-code-ml-pipeline
+```
 Install Dependencies
-
-Bash
-
+```
 pip install -r requirements.txt
+```
 Run the Application
-
-Bash
-
-streamlit run app.py
+```streamlit run app.py```
 How to Use
 
-Upload a .csv file (e.g., Titanic, Iris, or Customer Churn).
+1. Upload a .csv file (e.g., Titanic, Iris, or Customer Churn).
 
-Select your Target Column in the sidebar.
+2. Select your Target Column in the sidebar.
 
-Adjust Preprocessing (Scaling) and Model Hyperparameters.
+3. Adjust Preprocessing (Scaling) and Model Hyperparameters.
 
 Click Run Pipeline.
 
