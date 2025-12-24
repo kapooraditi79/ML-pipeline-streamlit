@@ -1,6 +1,8 @@
 # ML-pipeline-streamlit
 
 🚀No-Code ML Pipeline Builder
+
+Live demo: https://ml-pipeline-app-aditi79.streamlit.app/
 A robust, web-based AutoML tool that allows users to upload raw data, process it, train models, and visualize results—without writing a single line of code.
 
 Designed with a focus on Machine Learning Engineering principles, this project bridges the gap between complex algorithmic logic and intuitive user experience.
@@ -10,7 +12,7 @@ The objective was to build an end-to-end ML pipeline that is accessible to non-t
 
 Unlike standard tutorial scripts, this application implements a dynamic preprocessing engine that automatically detects data types, handles missing values, and encodes categorical features, ensuring the pipeline never crashes on arbitrary user data.
 
-🌟 Key Features
+### Key Features
 
 1. Universal Dataset Support: Upload any CSV/Excel. The system automatically identifies Target vs. Features and Text vs. Numbers.
 
@@ -32,19 +34,20 @@ Unlike standard tutorial scripts, this application implements a dynamic preproce
 
    Tree Structure Visualization for Decision Tree interpretability.
 
-Feature Importance analysis.
+### Feature Importance analysis.
 
 🛠 Technical Architecture
-This project is not just a UI wrapper; it is engineered for stability and mathematical correctness.
 
-1. The Preprocessing Pipeline (ColumnTransformer)
-   To handle raw user data safely, I implemented a split-path pipeline using Scikit-Learn’s ColumnTransformer. This ensures that:
+1.  it is engineered for stability and mathematical correctness.
 
-Numerical columns are isolated, imputed, and scaled (Standard or MinMax).
+2.  The Preprocessing Pipeline (ColumnTransformer)
+    To handle raw user data safely, I implemented a split-path pipeline using Scikit-Learn’s ColumnTransformer. This ensures that:
 
-Categorical columns are isolated, imputed, and One-Hot Encoded.
+3.  Numerical columns are isolated, imputed, and scaled (Standard or MinMax).
 
-The paths merge back together into a generic NumPy array ready for training.
+4.  Categorical columns are isolated, imputed, and One-Hot Encoded.
+
+5.  The paths merge back together into a generic NumPy array ready for training.
 
 # Architecture Snippet
 
@@ -60,24 +63,26 @@ preprocessor = ColumnTransformer(
 2. Custom ML Implementation (The "From Scratch" Engine)
    While Scikit-Learn is used for production reliability, I implemented a Custom Logistic Regression class to demonstrate an understanding of the core algorithms.
 
-Optimization: Batch Gradient Descent.
+3. Optimization: Batch Gradient Descent.
 
-Loss Function: Log-Loss (Binary Cross-Entropy) with L1/L2 Regularization support.
+4. Loss Function: Log-Loss (Binary Cross-Entropy) with L1/L2 Regularization support.
 
-Multiclass Strategy: One-vs-Rest (OvR) wrapper around the binary classifier to handle multi-class datasets (e.g., Iris).
+5. Multiclass Strategy: One-vs-Rest (OvR) wrapper around the binary classifier to handle multi-class datasets (e.g., Iris).
 
-Initialization: Xavier/Glorot Initialization for weight stability.
+6. Initialization: Xavier/Glorot Initialization for weight stability.
 
-📸 Visuals & Insights
+### 📸 Visuals & Insights
+
 The application prioritizes interpretability:
 
-Decision Tree Plotting: Uses matplotlib to render the actual tree structure, allowing users to trace the decision logic of the model.
+1. Decision Tree Plotting: Uses matplotlib to render the actual tree structure, allowing users to trace the decision logic of the model.
 
-Interactive Confusion Matrix: A Plotly heatmap that allows users to hover over specific errors to understand False Positives/Negatives.
+2. Interactive Confusion Matrix: A Plotly heatmap that allows users to hover over specific errors to understand False Positives/Negatives.
 
-Exploratory Data Analysis (EDA): Automatic correlation heatmaps and target distribution checks before training begins.
+3. Exploratory Data Analysis (EDA): Automatic correlation heatmaps and target distribution checks before training begins.
 
-⚙️ Installation & Usage
+### ⚙️ Installation & Usage
+
 Prerequisites: Python 3.8+
 
 Clone the Repository
