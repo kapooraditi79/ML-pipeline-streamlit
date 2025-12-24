@@ -1,5 +1,6 @@
 # ML-pipeline-streamlit
-🚀 No-Code ML Pipeline Builder
+
+🚀No-Code ML Pipeline Builder
 A robust, web-based AutoML tool that allows users to upload raw data, process it, train models, and visualize results—without writing a single line of code.
 
 Designed with a focus on Machine Learning Engineering principles, this project bridges the gap between complex algorithmic logic and intuitive user experience.
@@ -10,25 +11,26 @@ The objective was to build an end-to-end ML pipeline that is accessible to non-t
 Unlike standard tutorial scripts, this application implements a dynamic preprocessing engine that automatically detects data types, handles missing values, and encodes categorical features, ensuring the pipeline never crashes on arbitrary user data.
 
 🌟 Key Features
-Universal Dataset Support: Upload any CSV/Excel. The system automatically identifies Target vs. Features and Text vs. Numbers.
 
-Robust Preprocessing:
+1. Universal Dataset Support: Upload any CSV/Excel. The system automatically identifies Target vs. Features and Text vs. Numbers.
 
-Automated Imputation (Mean for numerical, Mode for categorical).
+2. Robust Preprocessing:
 
-Dynamic One-Hot Encoding and Standardization/Normalization.
+   Automated Imputation (Mean for numerical, Mode for categorical).
 
-Algorithm "Zoo":
+   Dynamic One-Hot Encoding and Standardization/Normalization.
 
-Standard: Logistic Regression & Decision Trees (Scikit-Learn).
+3. Algorithm "Zoo":
 
-Custom Implementation: A MulticlassLogistic regression built from scratch using Numpy to demonstrate the underlying mathematics (Gradient Descent, Cross-Entropy Loss).
+   Standard: Logistic Regression & Decision Trees (Scikit-Learn).
 
-Interactive Visualizations:
+   Custom Implementation: A MulticlassLogistic regression built from scratch using Numpy to demonstrate the underlying mathematics (Gradient Descent, Cross-Entropy Loss).
 
-Plotly Heatmaps for Confusion Matrices.
+4. Interactive Visualizations:
 
-Tree Structure Visualization for Decision Tree interpretability.
+   Plotly Heatmaps for Confusion Matrices.
+
+   Tree Structure Visualization for Decision Tree interpretability.
 
 Feature Importance analysis.
 
@@ -36,7 +38,7 @@ Feature Importance analysis.
 This project is not just a UI wrapper; it is engineered for stability and mathematical correctness.
 
 1. The Preprocessing Pipeline (ColumnTransformer)
-To handle raw user data safely, I implemented a split-path pipeline using Scikit-Learn’s ColumnTransformer. This ensures that:
+   To handle raw user data safely, I implemented a split-path pipeline using Scikit-Learn’s ColumnTransformer. This ensures that:
 
 Numerical columns are isolated, imputed, and scaled (Standard or MinMax).
 
@@ -44,9 +46,8 @@ Categorical columns are isolated, imputed, and One-Hot Encoded.
 
 The paths merge back together into a generic NumPy array ready for training.
 
-
-
 # Architecture Snippet
+
 ```
 preprocessor = ColumnTransformer(
     transformers=[
@@ -55,8 +56,9 @@ preprocessor = ColumnTransformer(
     ], remainder='drop'
 )
 ```
+
 2. Custom ML Implementation (The "From Scratch" Engine)
-While Scikit-Learn is used for production reliability, I implemented a Custom Logistic Regression class to demonstrate an understanding of the core algorithms.
+   While Scikit-Learn is used for production reliability, I implemented a Custom Logistic Regression class to demonstrate an understanding of the core algorithms.
 
 Optimization: Batch Gradient Descent.
 
@@ -79,22 +81,24 @@ Exploratory Data Analysis (EDA): Automatic correlation heatmaps and target distr
 Prerequisites: Python 3.8+
 
 Clone the Repository
+
 ```
 git clone https://github.com/yourusername/no-code-ml-pipeline.git
 cd no-code-ml-pipeline
 ```
+
 Install Dependencies
+
 ```
 pip install -r requirements.txt
 ```
+
 Run the Application
-```streamlit run app.py```
+`streamlit run app.py`
 How to Use
 
 1. Upload a .csv file (e.g., Titanic, Iris, or Customer Churn).
-
 2. Select your Target Column in the sidebar.
-
 3. Adjust Preprocessing (Scaling) and Model Hyperparameters.
 
 Click Run Pipeline.
@@ -112,6 +116,3 @@ This approach mimics real-world industry workflows where ML Engineers build "Pro
 [ ] Deep Learning Support: Add a simple Neural Network builder (PyTorch) for more complex datasets.
 
 [ ] Auto-Model Selection: Implement a "Search" feature that runs multiple models and picks the best one automatically (AutoML).
-
-
-
